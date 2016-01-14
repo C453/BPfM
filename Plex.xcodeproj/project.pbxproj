@@ -1,0 +1,289 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		276AC6881C468E9B00D902A5 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 276AC6871C468E9B00D902A5 /* WebKit.framework */; };
+		276AC6961C46998F00D902A5 /* view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276AC6951C46998F00D902A5 /* view.swift */; };
+		2784E0111C060C450004F449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2784E0101C060C450004F449 /* AppDelegate.swift */; };
+		2784E0151C060C450004F449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2784E0141C060C450004F449 /* Assets.xcassets */; };
+		27CE52CD1C45AD5400CFD7FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27CE52CC1C45AD5400CFD7FE /* Main.storyboard */; };
+		27CE52CF1C45AF1200CFD7FE /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CE52CE1C45AF1200CFD7FE /* WindowController.swift */; };
+		27D187E51C474037007A3C33 /* window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D187E41C474037007A3C33 /* window.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		276AC6871C468E9B00D902A5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		276AC6951C46998F00D902A5 /* view.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = view.swift; sourceTree = "<group>"; };
+		2784E00D1C060C450004F449 /* Plex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plex.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2784E0101C060C450004F449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2784E0141C060C450004F449 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2784E0191C060C450004F449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27CE52CC1C45AD5400CFD7FE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		27CE52CE1C45AF1200CFD7FE /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		27D187E41C474037007A3C33 /* window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = window.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2784E00A1C060C440004F449 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				276AC6881C468E9B00D902A5 /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2784E0041C060C440004F449 = {
+			isa = PBXGroup;
+			children = (
+				276AC6871C468E9B00D902A5 /* WebKit.framework */,
+				2784E00F1C060C450004F449 /* Plex */,
+				2784E00E1C060C450004F449 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2784E00E1C060C450004F449 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2784E00D1C060C450004F449 /* Plex.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2784E00F1C060C450004F449 /* Plex */ = {
+			isa = PBXGroup;
+			children = (
+				2784E0101C060C450004F449 /* AppDelegate.swift */,
+				27CE52CC1C45AD5400CFD7FE /* Main.storyboard */,
+				2784E0141C060C450004F449 /* Assets.xcassets */,
+				2784E0191C060C450004F449 /* Info.plist */,
+				27CE52CE1C45AF1200CFD7FE /* WindowController.swift */,
+				276AC6951C46998F00D902A5 /* view.swift */,
+				27D187E41C474037007A3C33 /* window.swift */,
+			);
+			path = Plex;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2784E00C1C060C440004F449 /* PLEX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2784E01C1C060C450004F449 /* Build configuration list for PBXNativeTarget "PLEX" */;
+			buildPhases = (
+				2784E0091C060C440004F449 /* Sources */,
+				2784E00A1C060C440004F449 /* Frameworks */,
+				2784E00B1C060C440004F449 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PLEX;
+			productName = Plex;
+			productReference = 2784E00D1C060C450004F449 /* Plex.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2784E0051C060C440004F449 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Case Wright";
+				TargetAttributes = {
+					2784E00C1C060C440004F449 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = SA9H558Q9R;
+					};
+				};
+			};
+			buildConfigurationList = 2784E0081C060C440004F449 /* Build configuration list for PBXProject "Plex" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2784E0041C060C440004F449;
+			productRefGroup = 2784E00E1C060C450004F449 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2784E00C1C060C440004F449 /* PLEX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2784E00B1C060C440004F449 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2784E0151C060C450004F449 /* Assets.xcassets in Resources */,
+				27CE52CD1C45AD5400CFD7FE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2784E0091C060C440004F449 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				276AC6961C46998F00D902A5 /* view.swift in Sources */,
+				27CE52CF1C45AF1200CFD7FE /* WindowController.swift in Sources */,
+				2784E0111C060C450004F449 /* AppDelegate.swift in Sources */,
+				27D187E51C474037007A3C33 /* window.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2784E01A1C060C450004F449 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2784E01B1C060C450004F449 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2784E01D1C060C450004F449 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Plex/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.C453.Plex;
+				PRODUCT_NAME = Plex;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		2784E01E1C060C450004F449 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Plex/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.C453.Plex;
+				PRODUCT_NAME = Plex;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2784E0081C060C440004F449 /* Build configuration list for PBXProject "Plex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2784E01A1C060C450004F449 /* Debug */,
+				2784E01B1C060C450004F449 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2784E01C1C060C450004F449 /* Build configuration list for PBXNativeTarget "PLEX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2784E01D1C060C450004F449 /* Debug */,
+				2784E01E1C060C450004F449 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2784E0051C060C440004F449 /* Project object */;
+}
