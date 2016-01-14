@@ -8,15 +8,21 @@
 
 import Cocoa
 
-class WindowController: NSWindowController {
+class WindowController: NSWindowController, NSWindowDelegate {
 
     override func windowDidLoad() {
+        Static.windowController = self
         self.window?.titleVisibility = NSWindowTitleVisibility.Hidden
         self.window?.titlebarAppearsTransparent = true
         self.window?.movableByWindowBackground = true
+        self.window?.makeKeyAndOrderFront(self)
+        self.window?.alphaValue = CGFloat(NSUserDefaults.standardUserDefaults().floatForKey("windowOpacity"))
+        
+        if(NSUserDefaults.standardUserDefaults().integerForKey("alwaysOnTop") == 1) {
+            self.window?.level =  Int(CGWindowLevelForKey(.FloatingWindowLevelKey))
+        }
+        
         super.windowDidLoad()
-    
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     }
     
     override func mouseEntered(theEvent: NSEvent) {
@@ -26,10 +32,20 @@ class WindowController: NSWindowController {
     override func mouseExited(theEvent: NSEvent) {
         self.window?.setTitleBarHidden(true)
     }
+    
+    func windowShouldClose(sender: AnyObject) -> Bool {
+        saveCookies()
+        Static.webView.saveLocalData()
+        return true
+    }
+    
+    func saveCookies() {
+        let cookiesData = NSKeyedArchiver.archivedDataWithRootObject(NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies!)
+        NSUserDefaults.standardUserDefaults().setObject(cookiesData, forKey: "cookies")
+    }
 }
 
 extension NSWindow {
-    
     func setTitleBarHidden(hidden: Bool, animated: Bool = true) {
         
         let buttonSuperView = standardWindowButtonSuperView()

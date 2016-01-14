@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		276AC6881C468E9B00D902A5 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 276AC6871C468E9B00D902A5 /* WebKit.framework */; };
 		276AC6961C46998F00D902A5 /* view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276AC6951C46998F00D902A5 /* view.swift */; };
+		277838031C47E8CD0026771B /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277838021C47E8CD0026771B /* OptionsViewController.swift */; };
+		277838051C4808780026771B /* Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277838041C4808780026771B /* Static.swift */; };
 		2784E0111C060C450004F449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2784E0101C060C450004F449 /* AppDelegate.swift */; };
 		2784E0151C060C450004F449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2784E0141C060C450004F449 /* Assets.xcassets */; };
 		27CE52CD1C45AD5400CFD7FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27CE52CC1C45AD5400CFD7FE /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		276AC6871C468E9B00D902A5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		276AC6951C46998F00D902A5 /* view.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = view.swift; sourceTree = "<group>"; };
+		277838021C47E8CD0026771B /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		277838041C4808780026771B /* Static.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Static.swift; sourceTree = "<group>"; };
 		2784E00D1C060C450004F449 /* Plex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2784E0101C060C450004F449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2784E0141C060C450004F449 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 				27CE52CE1C45AF1200CFD7FE /* WindowController.swift */,
 				276AC6951C46998F00D902A5 /* view.swift */,
 				27D187E41C474037007A3C33 /* window.swift */,
+				277838021C47E8CD0026771B /* OptionsViewController.swift */,
+				277838041C4808780026771B /* Static.swift */,
 			);
 			path = Plex;
 			sourceTree = "<group>";
@@ -146,6 +152,8 @@
 				27CE52CF1C45AF1200CFD7FE /* WindowController.swift in Sources */,
 				2784E0111C060C450004F449 /* AppDelegate.swift in Sources */,
 				27D187E51C474037007A3C33 /* window.swift in Sources */,
+				277838031C47E8CD0026771B /* OptionsViewController.swift in Sources */,
+				277838051C4808780026771B /* Static.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

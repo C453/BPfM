@@ -9,7 +9,10 @@
 import Cocoa
 import WebKit
 
-class wview: WebView, WebUIDelegate, WebFrameLoadDelegate, WebEditingDelegate {
+class wview: WebView, WebUIDelegate, WebFrameLoadDelegate, WebEditingDelegate, NSWindowDelegate {
+    
+    var lastTrackingArea: NSTrackingArea!
+    var didLoadLocalData: Bool!
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -17,10 +20,15 @@ class wview: WebView, WebUIDelegate, WebFrameLoadDelegate, WebEditingDelegate {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
+        Static.webView = self
+        self.didLoadLocalData = false
         self.UIDelegate = self
         self.editingDelegate = self
         self.frameLoadDelegate = self
+        
+        if(NSUserDefaults.standardUserDefaults().objectForKey("localData") == nil) {
+            NSUserDefaults.standardUserDefaults().setObject("{\"serverUpdateDismissedVersion\": \"unknown\", \"hasSeenHolidayTooltip\": true}", forKey: "localData")
+        }
         
         self.preferences.privateBrowsingEnabled = false
         self.mainFrame.loadRequest(NSURLRequest(URL: NSURL(string: "http://app.plex.tv/web/app")!))
@@ -30,13 +38,22 @@ class wview: WebView, WebUIDelegate, WebFrameLoadDelegate, WebEditingDelegate {
         super.drawRect(dirtyRect)
         let trackingArea = NSTrackingArea(rect: dirtyRect, options: [NSTrackingAreaOptions.ActiveAlways, NSTrackingAreaOptions.MouseMoved, NSTrackingAreaOptions.MouseMoved, NSTrackingAreaOptions.EnabledDuringMouseDrag], owner: self, userInfo: nil)
         self.addTrackingArea(trackingArea)
-
+        
+        if(lastTrackingArea != nil) {
+            self.removeTrackingArea(lastTrackingArea)
+        }
+        
+        lastTrackingArea = trackingArea
         // Drawing code here.
     }
     
     //hide stoplight buttons on mouse exit
     override func mouseEntered(theEvent: NSEvent) {
         self.window?.setTitleBarHidden(false)
+    }
+    
+    override func mouseExited(theEvent: NSEvent) {
+        self.window?.setTitleBarHidden(true)
     }
     
     override func mouseDown(theEvent: NSEvent) {
@@ -51,6 +68,11 @@ class wview: WebView, WebUIDelegate, WebFrameLoadDelegate, WebEditingDelegate {
     //remove items from login, other annoyances
     func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!) {
         self.stringByEvaluatingJavaScriptFromString("document.getElementsByClassName(\"container-fluid header blog\")[0].innerHTML = \"\";document.getElementsByClassName(\"container-fluid dark footer\")[0].innerHTML = \"\";document.getElementsByClassName(\"quest\")[0].innerHTML = \"\";document.getElementsByClassName(\"hidden-print\")[0].innerHTML = \"\";")
+        
+        if(!didLoadLocalData) {
+            loadCookies()
+            didLoadLocalData = true
+        }
     }
     
     //disable dragging
@@ -68,5 +90,33 @@ class wview: WebView, WebUIDelegate, WebFrameLoadDelegate, WebEditingDelegate {
     
     override var mouseDownCanMoveWindow: Bool {
         return true
+    }
+
+    func loadCookies() {
+        let localData = NSUserDefaults.standardUserDefaults().objectForKey("localData") as! String
+        stringByEvaluatingJavaScriptFromString("localStorage.setItem('settingsv2', '\(localData)');")
+        
+        let archivedCookies = NSUserDefaults.standardUserDefaults().objectForKey("cookies") as! NSData
+        
+        let cookies = NSKeyedUnarchiver.unarchiveObjectWithData(archivedCookies) as! [NSHTTPCookie]?
+        
+        let cookieStorage: NSHTTPCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        
+        cookieStorage.cookieAcceptPolicy = NSHTTPCookieAcceptPolicy.Always
+        
+        if(cookies?.count == 0) {
+            return
+        }
+        
+        for cookie in cookies! {
+            cookieStorage.setCookie(cookie)
+        }
+    }
+}
+
+extension WebView {
+    func saveLocalData() {
+        let localData = stringByEvaluatingJavaScriptFromString("localStorage.getItem('settingsv2');")
+        NSUserDefaults.standardUserDefaults().setObject(localData, forKey: "localData")
     }
 }

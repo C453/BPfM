@@ -37,8 +37,8 @@ class window: NSWindow {
     override func mouseDragged(theEvent: NSEvent) {
         var currentLocation: NSPoint
         var newOrigin: NSPoint
-        var screenFrame: NSRect = NSScreen.mainScreen()!.frame
-        var windowFrame: NSRect = self.frame
+        let screenFrame: NSRect = NSScreen.mainScreen()!.frame
+        let windowFrame: NSRect = self.frame
         currentLocation = NSEvent.mouseLocation()
         newOrigin = NSPoint(x: currentLocation.x - self.initialLocation.x, y: currentLocation.y - self.initialLocation.y)
         
