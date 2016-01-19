@@ -34,14 +34,8 @@ class WindowController: NSWindowController, NSWindowDelegate {
     }
     
     func windowShouldClose(sender: AnyObject) -> Bool {
-        saveCookies()
         Static.webView.saveLocalData()
         return true
-    }
-    
-    func saveCookies() {
-        let cookiesData = NSKeyedArchiver.archivedDataWithRootObject(NSHTTPCookieStorage.sharedHTTPCookieStorage().cookies!)
-        NSUserDefaults.standardUserDefaults().setObject(cookiesData, forKey: "cookies")
     }
 }
 

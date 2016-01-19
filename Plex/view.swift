@@ -70,11 +70,11 @@ class wview: WebView, WebUIDelegate, WebFrameLoadDelegate, WebEditingDelegate, N
         self.stringByEvaluatingJavaScriptFromString("document.getElementsByClassName(\"container-fluid header blog\")[0].innerHTML = \"\";document.getElementsByClassName(\"container-fluid dark footer\")[0].innerHTML = \"\";document.getElementsByClassName(\"quest\")[0].innerHTML = \"\";document.getElementsByClassName(\"hidden-print\")[0].innerHTML = \"\";")
         
         if(!didLoadLocalData) {
-            loadCookies()
+            loadLocalData()
             didLoadLocalData = true
         }
     }
-    
+     
     //disable dragging
     func webView(webView: WebView!, dragSourceActionMaskForPoint point: NSPoint) -> Int {
         return Int(WebDragSourceAction.None.rawValue)
@@ -92,25 +92,9 @@ class wview: WebView, WebUIDelegate, WebFrameLoadDelegate, WebEditingDelegate, N
         return true
     }
 
-    func loadCookies() {
+    func loadLocalData() {
         let localData = NSUserDefaults.standardUserDefaults().objectForKey("localData") as! String
         stringByEvaluatingJavaScriptFromString("localStorage.setItem('settingsv2', '\(localData)');")
-        
-        let archivedCookies = NSUserDefaults.standardUserDefaults().objectForKey("cookies") as! NSData
-        
-        let cookies = NSKeyedUnarchiver.unarchiveObjectWithData(archivedCookies) as! [NSHTTPCookie]?
-        
-        let cookieStorage: NSHTTPCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
-        
-        cookieStorage.cookieAcceptPolicy = NSHTTPCookieAcceptPolicy.Always
-        
-        if(cookies?.count == 0) {
-            return
-        }
-        
-        for cookie in cookies! {
-            cookieStorage.setCookie(cookie)
-        }
     }
 }
 
