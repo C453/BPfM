@@ -35,6 +35,11 @@ class window: NSWindow {
     }
     
     override func mouseDragged(theEvent: NSEvent) {
+        if(contentView is wview) {
+            if((contentView as! wview).mouseOverScrollBar) {
+                return
+            }
+        
         var currentLocation: NSPoint
         var newOrigin: NSPoint
         let screenFrame: NSRect = NSScreen.mainScreen()!.frame
@@ -48,6 +53,7 @@ class window: NSWindow {
         }
         //go ahead and move the window to the new location
         self.setFrameOrigin(newOrigin)
+        }
 
     }
 }

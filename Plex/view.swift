@@ -13,6 +13,7 @@ class wview: WebView, WebUIDelegate, WebFrameLoadDelegate, WebEditingDelegate, N
     
     var lastTrackingArea: NSTrackingArea!
     var didLoadLocalData: Bool!
+    var mouseOverScrollBar:Bool = false
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -21,11 +22,11 @@ class wview: WebView, WebUIDelegate, WebFrameLoadDelegate, WebEditingDelegate, N
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         Static.webView = self
+        
         self.didLoadLocalData = false
         self.UIDelegate = self
         self.editingDelegate = self
         self.frameLoadDelegate = self
-        
         if(NSUserDefaults.standardUserDefaults().objectForKey("localData") == nil) {
             NSUserDefaults.standardUserDefaults().setObject("{\"serverUpdateDismissedVersion\": \"unknown\", \"hasSeenHolidayTooltip\": true}", forKey: "localData")
         }
@@ -72,6 +73,21 @@ class wview: WebView, WebUIDelegate, WebFrameLoadDelegate, WebEditingDelegate, N
         if(!didLoadLocalData) {
             loadLocalData()
             didLoadLocalData = true
+        }
+    }
+    
+    func webView(sender: WebView!, mouseDidMoveOverElement elementInformation: [NSObject : AnyObject]!, modifierFlags: Int)
+    {
+        if(Bool.init(elementInformation["WebElementIsInScrollBar"] as! NSNumber)) {
+            mouseOverScrollBar = true
+        }
+        else if(elementInformation["WebElementDOMNode"] is DOMHTMLElement) {
+            let element = elementInformation["WebElementDOMNode"] as! DOMHTMLElement
+            
+            mouseOverScrollBar = element.className.containsString("slider")
+        }
+        else {
+            mouseOverScrollBar = false
         }
     }
      
