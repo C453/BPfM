@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="10116"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -22,12 +22,6 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
-                                            <connections>
-                                                <segue destination="FF7-X9-llb" kind="show" id="OOl-vI-eUD"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Hide PLEX" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
@@ -58,11 +52,24 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
                                     <items>
-                                        <menuItem title="Minimize" keyEquivalent="m" id="OY7-WF-poV">
+                                        <menuItem title="Set Window to Video Aspect Ratio" keyEquivalent="a" id="cSt-1y-fNU">
                                             <connections>
-                                                <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
+                                                <action selector="setAutoAspectRatio:" target="Voe-Tx-rLC" id="Odx-JF-Nbo"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem id="SDc-7F-gqH">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <outlet property="view" destination="881-2D-PE9" id="3Dl-PI-M5T"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Always on Top" id="l8x-th-7vY">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="alwaysOnTopMenuItemPressed:" target="Voe-Tx-rLC" id="nIS-jj-8cy"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="qxy-7R-xMp"/>
                                         <menuItem title="Zoom" id="R4o-n2-Eq4">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
@@ -79,28 +86,44 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Help" id="wpr-3q-Mcd">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
-                                    <items>
-                                        <menuItem title="PLEX Help" keyEquivalent="?" id="FKE-Sm-Kum">
-                                            <connections>
-                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
                         </items>
                     </menu>
                     <connections>
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Plex" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Plex" customModuleProvider="target">
+                    <connections>
+                        <outlet property="alwaysOnTopMenuItem" destination="l8x-th-7vY" id="frC-K8-jB1"/>
+                        <outlet property="opacityMenuItem" destination="SDc-7F-gqH" id="TlD-92-ykT"/>
+                        <outlet property="opacityMenuView" destination="881-2D-PE9" id="R5r-aw-wQh"/>
+                        <outlet property="opacitySlider" destination="tCR-d5-bh5" id="wVn-YM-cHT"/>
+                    </connections>
+                </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customView id="881-2D-PE9">
+                    <rect key="frame" x="0.0" y="0.0" width="264" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tCR-d5-bh5">
+                            <rect key="frame" x="79" y="0.0" width="177" height="20"/>
+                            <sliderCell key="cell" state="on" alignment="left" minValue="0.10000000000000001" maxValue="1" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="nCa-DZ-GH6"/>
+                            <connections>
+                                <action selector="opacitySliderValueChanged:" target="Voe-Tx-rLC" id="XUa-r0-9aH"/>
+                            </connections>
+                        </slider>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="StA-k9-egp">
+                            <rect key="frame" x="18" y="4" width="77" height="17"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Opacity:" id="nLr-tS-Xkx">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                </customView>
             </objects>
-            <point key="canvasLocation" x="263.5" y="-73"/>
+            <point key="canvasLocation" x="-61.5" y="1"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -109,7 +132,7 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="IQv-IB-iLA" customClass="window" customModule="Plex" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="471" height="294"/>
+                        <rect key="contentRect" x="197" y="240" width="470" height="294"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="TzC-ke-sAV"/>
@@ -121,51 +144,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="70.5" y="262"/>
-        </scene>
-        <!--Options-->
-        <scene sceneID="1RD-vV-H7q">
-            <objects>
-                <viewController title="Options" id="FF7-X9-llb" customClass="OptionsViewController" customModule="Plex" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="G4K-NY-jKn">
-                        <rect key="frame" x="0.0" y="0.0" width="260" height="93"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FOF-R7-gi0">
-                                <rect key="frame" x="18" y="27" width="118" height="18"/>
-                                <buttonCell key="cell" type="check" title="Always on Top" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dzO-WV-4Nq">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <connections>
-                                        <action selector="alwaysOnTopBtnPressed:" target="FF7-X9-llb" id="xWY-D7-p9c"/>
-                                    </connections>
-                                </buttonCell>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q9p-KG-Sot">
-                                <rect key="frame" x="18" y="56" width="103" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Window Opacity" id="YBU-W5-QjO">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Csh-Dp-EaG">
-                                <rect key="frame" x="134" y="50" width="113" height="25"/>
-                                <sliderCell key="cell" state="on" alignment="left" minValue="0.10000000000000001" maxValue="1" doubleValue="0.10000000000000001" tickMarkPosition="below" numberOfTickMarks="10" allowsTickMarkValuesOnly="YES" sliderType="linear" id="Bzf-Fe-luM"/>
-                                <connections>
-                                    <action selector="windowOpacityValueChanged:" target="FF7-X9-llb" id="L77-un-Dgo"/>
-                                </connections>
-                            </slider>
-                        </subviews>
-                    </view>
-                    <connections>
-                        <outlet property="alwaysOnTopBtn" destination="FOF-R7-gi0" id="VWJ-pr-1A2"/>
-                        <outlet property="windowOpacitySlider" destination="Csh-Dp-EaG" id="Hha-ey-cKD"/>
-                    </connections>
-                </viewController>
-                <customObject id="lwn-ab-JdC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="490" y="161.5"/>
+            <point key="canvasLocation" x="-393" y="421"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">

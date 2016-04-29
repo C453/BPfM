@@ -9,6 +9,9 @@
 import Cocoa
 
 class WindowController: NSWindowController, NSWindowDelegate {
+    
+    var fullScreen: Bool = false
+    var aspectRatio: CGFloat = 0
 
     override func windowDidLoad() {
         Static.windowController = self
@@ -34,8 +37,28 @@ class WindowController: NSWindowController, NSWindowDelegate {
     }
     
     func windowShouldClose(sender: AnyObject) -> Bool {
-        Static.webView.saveLocalData()
+        if(window?.contentView is wview) {
+            (window?.contentView as! wview).saveLocalData()
+        }
         return true
+    }
+    
+    func windowWillEnterFullScreen(notification: NSNotification) {
+        fullScreen = true
+    }
+    
+    func windowDidExitFullScreen(notification: NSNotification) {
+        fullScreen = false
+    }
+    
+    func windowWillResize(sender: NSWindow, toSize frameSize: NSSize) -> NSSize {
+        if(!fullScreen) {
+            if(aspectRatio != 0) {
+                return NSSize(width: frameSize.height * aspectRatio, height: frameSize.height)
+            }
+        }
+        
+        return frameSize
     }
 }
 

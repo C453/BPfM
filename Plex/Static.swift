@@ -11,5 +11,4 @@ import WebKit
 
 struct Static {
     static var windowController: WindowController!
-    static var webView: WebView!
 }

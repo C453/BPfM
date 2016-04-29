@@ -21,7 +21,6 @@ class wview: WebView, WebUIDelegate, WebFrameLoadDelegate, WebEditingDelegate, N
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        Static.webView = self
         
         self.didLoadLocalData = false
         self.UIDelegate = self
@@ -33,6 +32,7 @@ class wview: WebView, WebUIDelegate, WebFrameLoadDelegate, WebEditingDelegate, N
         
         self.preferences.privateBrowsingEnabled = false
         self.mainFrame.loadRequest(NSURLRequest(URL: NSURL(string: "http://app.plex.tv/web/app")!))
+        
     }
     
     override func drawRect(dirtyRect: NSRect) {
@@ -90,7 +90,7 @@ class wview: WebView, WebUIDelegate, WebFrameLoadDelegate, WebEditingDelegate, N
             mouseOverScrollBar = false
         }
     }
-     
+    
     //disable dragging
     func webView(webView: WebView!, dragSourceActionMaskForPoint point: NSPoint) -> Int {
         return Int(WebDragSourceAction.None.rawValue)
