@@ -21,7 +21,7 @@
 		276AC6871C468E9B00D902A5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		276AC6951C46998F00D902A5 /* view.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = view.swift; sourceTree = "<group>"; };
 		277838041C4808780026771B /* Static.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Static.swift; sourceTree = "<group>"; };
-		2784E00D1C060C450004F449 /* Plex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plex.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2784E00D1C060C450004F449 /* BPfM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BPfM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2784E0101C060C450004F449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2784E0141C060C450004F449 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2784E0191C060C450004F449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				276AC6871C468E9B00D902A5 /* WebKit.framework */,
-				2784E00F1C060C450004F449 /* Plex */,
+				2784E00F1C060C450004F449 /* BPfM */,
 				2784E00E1C060C450004F449 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,12 +54,12 @@
 		2784E00E1C060C450004F449 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2784E00D1C060C450004F449 /* Plex.app */,
+				2784E00D1C060C450004F449 /* BPfM.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2784E00F1C060C450004F449 /* Plex */ = {
+		2784E00F1C060C450004F449 /* BPfM */ = {
 			isa = PBXGroup;
 			children = (
 				2784E0101C060C450004F449 /* AppDelegate.swift */,
@@ -71,15 +71,15 @@
 				27D187E41C474037007A3C33 /* window.swift */,
 				277838041C4808780026771B /* Static.swift */,
 			);
-			path = Plex;
+			path = BPfM;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2784E00C1C060C440004F449 /* PLEX */ = {
+		2784E00C1C060C440004F449 /* BPfM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2784E01C1C060C450004F449 /* Build configuration list for PBXNativeTarget "PLEX" */;
+			buildConfigurationList = 2784E01C1C060C450004F449 /* Build configuration list for PBXNativeTarget "BPfM" */;
 			buildPhases = (
 				2784E0091C060C440004F449 /* Sources */,
 				2784E00A1C060C440004F449 /* Frameworks */,
@@ -89,9 +89,9 @@
 			);
 			dependencies = (
 			);
-			name = PLEX;
-			productName = Plex;
-			productReference = 2784E00D1C060C450004F449 /* Plex.app */;
+			name = BPfM;
+			productName = BPfM;
+			productReference = 2784E00D1C060C450004F449 /* BPfM.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -110,7 +110,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2784E0081C060C440004F449 /* Build configuration list for PBXProject "Plex" */;
+			buildConfigurationList = 2784E0081C060C440004F449 /* Build configuration list for PBXProject "BPfM" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -123,7 +123,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2784E00C1C060C440004F449 /* PLEX */,
+				2784E00C1C060C440004F449 /* BPfM */,
 			);
 		};
 /* End PBXProject section */
@@ -240,14 +240,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Plex/Info.plist;
+				INFOPLIST_FILE = BPfM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.C453.Plex;
-				PRODUCT_NAME = Plex;
+				PRODUCT_BUNDLE_IDENTIFIER = com.C453.BPfM;
+				PRODUCT_NAME = BPfM;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -256,14 +256,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Plex/Info.plist;
+				INFOPLIST_FILE = BPfM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.C453.Plex;
-				PRODUCT_NAME = Plex;
+				PRODUCT_BUNDLE_IDENTIFIER = com.C453.BPfM;
+				PRODUCT_NAME = BPfM;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -271,7 +271,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2784E0081C060C440004F449 /* Build configuration list for PBXProject "Plex" */ = {
+		2784E0081C060C440004F449 /* Build configuration list for PBXProject "BPfM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2784E01A1C060C450004F449 /* Debug */,
@@ -280,7 +280,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2784E01C1C060C450004F449 /* Build configuration list for PBXNativeTarget "PLEX" */ = {
+		2784E01C1C060C450004F449 /* Build configuration list for PBXNativeTarget "BPfM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2784E01D1C060C450004F449 /* Debug */,

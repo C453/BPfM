@@ -1,6 +1,6 @@
 //
 //  window.swift
-//  Plex
+//  BPfM
 //
 //  Created by Case Wright on 1/13/16.
 //  Copyright © 2016 Case Wright. All rights reserved.
@@ -35,7 +35,6 @@ class window: NSWindow {
     }
     
     override func mouseDragged(theEvent: NSEvent) {
-        if(contentView is wview) {
             if((contentView as! wview).mouseOverScrollBar) {
                 return
             }
@@ -54,6 +53,4 @@ class window: NSWindow {
         //go ahead and move the window to the new location
         self.setFrameOrigin(newOrigin)
         }
-
-    }
 }

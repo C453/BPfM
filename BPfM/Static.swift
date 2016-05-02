@@ -1,6 +1,6 @@
 //
 //  Constants.swift
-//  Plex
+//  BPfM
 //
 //  Created by Case Wright on 1/14/16.
 //  Copyright © 2016 Case Wright. All rights reserved.

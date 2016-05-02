@@ -1,6 +1,6 @@
 //
 //  view.swift
-//  PLEX
+//  BPfM
 //
 //  Created by Case Wright on 1/13/16.
 //  Copyright © 2016 Case Wright. All rights reserved.
@@ -13,7 +13,7 @@ class wview: WebView, WebUIDelegate, WebFrameLoadDelegate, WebEditingDelegate, N
     
     var lastTrackingArea: NSTrackingArea!
     var didLoadLocalData: Bool!
-    var mouseOverScrollBar:Bool = false
+    var mouseOverScrollBar: Bool = false
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -80,15 +80,16 @@ class wview: WebView, WebUIDelegate, WebFrameLoadDelegate, WebEditingDelegate, N
     {
         if(Bool.init(elementInformation["WebElementIsInScrollBar"] as! NSNumber)) {
             mouseOverScrollBar = true
+            return
         }
         else if(elementInformation["WebElementDOMNode"] is DOMHTMLElement) {
             let element = elementInformation["WebElementDOMNode"] as! DOMHTMLElement
             
             mouseOverScrollBar = element.className.containsString("slider")
+            return
         }
-        else {
-            mouseOverScrollBar = false
-        }
+        
+        mouseOverScrollBar = false
     }
     
     //disable dragging
